@@ -1,0 +1,26 @@
+<div class="items-container">
+  <h1 align="center"> Your Orders </h1>
+  <% @orders.each do |order| %>
+    <% if order.total_amount != 0 %>
+      <div class="Card">
+        <div class="item-details">
+          <% if session[:user_id] == 1 %>
+            <h3> <%= "User ID: #{order.user_id}" %> </h3>
+          <% end %>
+            <p> <%= "Order ID: #{order.id}" %> </p>
+            <p> <%= "Order Total: #{order.total_amount}" %> </p>
+        </div>
+        <div class="item-actions">
+          <%= link_to "Show", order_path(order), class: "btn btn-xs btn-success"%>
+          <% if session[:user_id] == 1 %>
+            <%= link_to "Delete", order_path(order), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      }, class: "btn btn-xs btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    <%end%>
+  <% end %>
+  <%= link_to "Create New Order", new_order_path, class: "btn btn-md btn-primary"%>
+</div>

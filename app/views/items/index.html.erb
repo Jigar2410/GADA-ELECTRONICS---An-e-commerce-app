@@ -1,0 +1,25 @@
+<div class="items-container">
+  <h1 align="center" >List of Available Items</h1>
+  <% @items.each do |item| %>
+    <div class="Card">
+      <div class="item-details">
+        <h3> <%= link_to item.name, item_path(item) %> <h3>
+        <p> <%= truncate(item.description, length: 50) %> </p>
+      </div>
+      <% if session[:user_id] == 1 %>
+        <div class="item-actions">
+          <%= link_to "Edit", edit_item_path(item), class: "btn btn-xs btn-primary" %>
+          <%= link_to "Delete", item_path(item), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-xs btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% if session[:user_id] == 1 %>
+      <% if session[:user_id] == 1 %>
+          <%= link_to "Add Item", new_item_path, class: "btn btn-lg btn-primary" %>
+      <% end %>
+  <% end %>
+</div>

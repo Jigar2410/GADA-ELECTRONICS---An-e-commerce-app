@@ -1,0 +1,151 @@
+// // $navbar-default-bg: #222831;
+
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+  background: #373b44;
+  background: -webkit-linear-gradient(to right, #73c8a9, #000000);
+  background: linear-gradient(to right, #73c8a9, #373b44);
+}
+
+.navbar {
+  padding: 0 !important;
+  font-size: 1.3rem;
+  background: #73c8a9;
+  background: -webkit-linear-gradient(to right, #373b44, #73c8a9);
+  background: linear-gradient(to right, #000000, #73c8a9);
+  border-bottom: 2px solid #898989;
+  margin-bottom: 3rem;
+
+  a {
+    color: white;
+    cursor: pointer;
+  }
+
+  a:hover,
+  a:active {
+    color: rgb(206, 206, 206);
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+}
+
+.active {
+  background-color: #185336;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  color: white;
+
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 2rem;
+    color: black;
+
+    h3 a {
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .item-actions {
+    margin: 1rem 2rem;
+  }
+}
+
+.show-item {
+  header {
+    padding-top: 1.5rem;
+  }
+
+  .item-body {
+    padding: 1rem 2rem;
+
+    .item-group {
+      margin: 1rem 0.5rem;
+    }
+
+    table tr {
+      border-bottom: 1px solid #c5c5c5;
+    }
+  }
+
+  footer {
+    padding: 0 2rem 1.5rem 2rem;
+  }
+}
+
+.Card {
+  width: 50%;
+  min-width: 30rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  border: 1px solid #c5c5c5;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  background: #83a4d4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b6fbff,
+    #83a4d4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b6fbff,
+    #83a4d4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form {
+  padding: 1rem 2rem;
+}
+
+.form-group {
+  margin: 1rem 0.5rem;
+}
+
+.alert {
+  width: 80%;
+  margin: 0.5rem auto;
+
+  a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+  }
+}
+
+.login-container {
+  width: 0%;
+
+  .form-group {
+    padding: 0.5rem 0;
+
+    label {
+      margin-bottom: 0.2rem;
+    }
+  }
+}
+
+.main-image {
+  mix-blend-mode: multiply;
+  filter: brightness(1.1);
+  width: 75%;
+}

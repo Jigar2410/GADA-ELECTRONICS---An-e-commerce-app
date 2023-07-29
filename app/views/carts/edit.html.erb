@@ -1,0 +1,39 @@
+<div class="Card show-item">
+  <header>
+    <h1 align="center"> Your Cart </h1>
+  </header>
+  <div class="item-body">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> <%= "Id" %> </th>
+        <th scope="col"> <%= "Name" %> </th>
+        <th scope="col"> <%= "Quantity" %> </th>
+        <th scope="col"> <%= "Total Price" %> </th>
+        <th scope="col"> &nbsp </th>
+        <th scope="col"> &nbsp </th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @cart_items.each do |item| %>
+      <tr>
+        <th scope="row"> <%= item["id"] %> </th>
+        <td> <%= item["name"] %> </td>
+        <td> <%= item["quantity"] %> </td>
+        <td> <%= item["total_price"] %> </td>
+        <td> <%= link_to "Edit", edit_cart_item_path(id: item["id"]), class:"btn btn-xs btn-primary"%> </td>
+        <td> <%= link_to "Delete", cart_item_path(id: item["id"]), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } , class:"btn btn-xs btn-danger"%> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+  <footer class="d-flex align-items-center justify-content-between">
+      <strong>  <%= "Order Total: #{session[:grand_total]}" %>  </strong>
+      <%= link_to "Cancel", cart_path(session[:cart_id]), class: "btn btn-danger"%>
+  </footer>
+</div>
+

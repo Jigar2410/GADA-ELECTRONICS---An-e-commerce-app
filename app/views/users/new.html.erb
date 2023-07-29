@@ -1,0 +1,27 @@
+<div class="Card login-container">
+  <header class="pt-3">
+    <h1 align="center" > Signup </h1>
+  </header>
+  <%= form_with(model: @user,  :html => {class: "form-horizontal form", role: "form"}, url: users_path, method: :post) do |f| %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class:"form-control", placeholder: "enter your username", autifocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class:"form-control", placeholder: "enter your email address" %> 
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control", placeholder: "enter your password" %> 
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>        
+      <%= f.password_field :password_confirmation, class:"form-control", placeholder: "enter your password again" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Signup", class: "btn btn-primary btn-md"%>
+    </div>
+  <% end %>
+</div>
+

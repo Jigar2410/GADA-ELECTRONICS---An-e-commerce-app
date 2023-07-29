@@ -1,0 +1,26 @@
+<%= render "errors/errors", obj: @item %>
+
+<div class="Card">
+  <%= form_for(@item,  :html => {class: "form-horizontal form", role: "form"}) do |f| %>
+    <div class="form-group">
+      <%= f.label :name, class:"form-label" %>
+      <%= f.text_field :name, class:"form-control", placeholder: "enter your item name", autifocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class:"form-label" %>
+      <%= f.text_area :description, rows: 5, class:"form-control", placeholder: "enter your item description" %> 
+    </div>
+    <div class="form-group">
+      <%= f.label :price, class:"form-label" %>
+      <%= f.number_field :price, class:"form-control", placeholder: "enter your item price" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :quantity, class:"form-label" %>
+      <%= f.number_field :quantity, class:"form-control", placeholder: "enter your item quantity" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Submit", class: "btn btn-primary btn-md"%>
+      <%= link_to "Cancel", items_path, class:"btn btn-primary btn-md" %>
+    </div>
+  <% end %>
+</div>

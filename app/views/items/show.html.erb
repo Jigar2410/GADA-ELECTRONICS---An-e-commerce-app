@@ -1,0 +1,44 @@
+<div class="Card show-item">
+  <header>
+    <h2 align="center"><%= @item.name %></h2>
+  </header>
+  <div class="item-body">
+    <div class="item-group">
+      <h5><strong>Description: </strong></h5>
+      <p> <%= simple_format(@item.description) %> </p>
+    </div>
+    <div class="item-group">
+      <h5><strong>Price: </strong></h5>
+      <p> <%= @item.price %> </p>
+    </div>
+    <div class="item-group">
+      <h5><strong>Quantity: </strong></h5>
+      <p> <%= @item.quantity %> </p>
+    </div>
+    <div class="item-group">
+      <% if session[:cart_id] %>
+        <h5><strong>Buy Item: </strong></h5>
+        <p>
+          <%= form_tag add_to_cart_path,  method: :post do %>
+            <%= hidden_field_tag :id, @item.id %>
+            <div>
+                <%= label_tag :quantity, "Select Quantity: " %>
+                <%= number_field_tag :quantity, value: 1, min: 1%>
+                <%= submit_tag "Add to Cart" , class: "btn btn-xs btn-primary"%>
+            </div>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <footer class="item-actions">
+    <% if session[:user_id] == 1 %>
+      <%= link_to "Edit", edit_item_path(@item), class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete", item_path(@item), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-xs btn-danger" %>
+    <% end %>
+    <%= link_to "View all items", items_path, class: "btn btn-xs btn-success" %>
+  </footer>
+</div>
